@@ -8,7 +8,7 @@ import { DataService } from '../services/data.service';
 })
 
 export class FirstParentComponent implements OnInit {
-  fpHeaders = ['name', 'email', 'phone', 'website'];
+  fpHeaders: any = ['name', 'email','phone', 'website'];
   fpBody: any [] = [];
 
   constructor(private api: DataService) { }
@@ -17,10 +17,10 @@ export class FirstParentComponent implements OnInit {
     this.fpGetTable();
   }
 
+
   fpGetTable() {
     this.api.getTableService().subscribe((result: any) => {
       return this.fpBody = result;
     });
-
   }
 }

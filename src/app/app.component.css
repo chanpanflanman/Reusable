@@ -1,4 +1,10 @@
-.links {
-    display: flex;
-    gap: 10px;
+.back,
+.back:link,
+.back:hover,
+.back:visited {
+    float: right;
+    position: absolute;
+    right: 10px;
+    color: rgb(57, 57, 248);
+    text-decoration: underline;
 }

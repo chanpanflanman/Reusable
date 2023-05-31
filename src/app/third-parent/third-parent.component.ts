@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-third-parent',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./third-parent.component.css']
 })
 export class ThirdParentComponent {
+  
+  id: any;
+  idForm = new FormGroup({
+    val: new FormControl()
+  })
 
+  submitID() {
+    this.id = this.idForm.value;
+    console.log(this.id);
+  }
 }

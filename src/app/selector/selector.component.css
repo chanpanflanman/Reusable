@@ -1,0 +1,73 @@
+.links {
+    display: flex;
+    gap: 10px;
+}
+a {
+    height: 30px;
+    width: 180px;
+    text-align: center;
+}
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited,
+a:hover {
+    color: black;
+    background-color: #b1caff;
+
+}
+
+.selectField {
+    display: grid;
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid rgb(216, 216, 216);
+    align-items: center;
+    justify-items: center;
+    transition: 0.4s;
+}
+
+.selectField:hover {
+    cursor: pointer;
+    border: 1px solid #7490df;
+    transition: 0.4s;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+.hideList {
+    display: none;
+}
+
+.visibleList {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid #7490df;
+}
+
+
+.back,
+.back:link,
+.back:hover,
+.back:visited {
+    float: right;
+    position: absolute;
+    right: 10px;
+    color: rgb(57, 57, 248);
+    text-decoration: underline;
+}

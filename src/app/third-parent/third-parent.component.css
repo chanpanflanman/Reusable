@@ -1,0 +1,27 @@
+.selectField {
+    display: grid;
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid rgb(216, 216, 216);
+    align-items: center;
+    justify-items: center;
+    transition: 0.4s;
+}
+
+.selectField:hover {
+    cursor: pointer;
+    border: 1px solid #7490df;
+    transition: 0.4s;
+}
+
+.input {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px auto 20px;
+}
+
+.button {
+    width: auto;
+}
