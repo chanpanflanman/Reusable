@@ -10,6 +10,7 @@ import { FirstParentComponent } from './first-parent/first-parent.component';
 import { SecondParentComponent } from './second-parent/second-parent.component';
 import { ThirdParentComponent } from './third-parent/third-parent.component';
 import { SelectorComponent } from './selector/selector.component';
+import { MiniTableComponent } from './mini-table/mini-table.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SelectorComponent } from './selector/selector.component';
     FirstParentComponent,
     SecondParentComponent,
     ThirdParentComponent,
-    SelectorComponent
+    SelectorComponent,
+    MiniTableComponent
   ],
   imports: [
     BrowserModule,

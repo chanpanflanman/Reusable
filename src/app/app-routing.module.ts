@@ -6,9 +6,9 @@ import { ThirdParentComponent } from './third-parent/third-parent.component';
 import { SelectorComponent } from './selector/selector.component';
 
 const routes: Routes = [
-  { path: 'first-parent', component: FirstParentComponent },
-  { path: 'second-parent', component: SecondParentComponent },
-  { path: 'third-parent', component: ThirdParentComponent },
+  { path: 'first-parent/:id', component: FirstParentComponent },
+  { path: 'second-parent/:id', component: SecondParentComponent },
+  { path: 'third-parent/:id', component: ThirdParentComponent },
   { path: 'selector', component: SelectorComponent },
   { path: '', redirectTo:'/selector', pathMatch:'full' }
 ];

@@ -9,3 +9,11 @@ td {
     border: 1px black solid;
 
 }
+
+.container {
+    display: grid;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
