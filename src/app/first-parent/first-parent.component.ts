@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-
 @Component({
   selector: 'app-first-parent',
   templateUrl: './first-parent.component.html',
@@ -8,19 +7,19 @@ import { DataService } from '../services/data.service';
 })
 
 export class FirstParentComponent implements OnInit {
-  fpHeaders = ['name', 'email', 'phone', 'website'];
+  tableName: string = 'table1'
+  fpHeaders: any = ['name', 'email','phone', 'website'];
   fpBody: any [] = [];
 
   constructor(private api: DataService) { }
 
   ngOnInit(): void {
-    this.fpGetTable();
+    this.fpGetTable(this.tableName);
   }
 
-  fpGetTable() {
-    this.api.getTableService().subscribe((result: any) => {
+  fpGetTable(tableOne: string) {
+    this.api.getTableService(tableOne).subscribe((result: any) => {
       return this.fpBody = result;
     });
-
   }
 }

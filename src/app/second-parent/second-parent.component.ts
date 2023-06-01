@@ -9,17 +9,18 @@ import { Data } from '@angular/router';
 })
 
 export class SecondParentComponent implements OnInit {
+  tableName: string = 'table2'
   spHeaders = ['name', 'job' ,'email', 'age', 'country'];
   spBody: any [] = [];
 
   constructor(private api: DataService) { }
 
   ngOnInit(): void {
-    this.spGetTable();
+    this.spGetTable(this.tableName);
   }
 
-  spGetTable() {
-    this.api.getSecondTableService().subscribe((result:any)=> {
+  spGetTable(tableTwo: string) {
+    this.api.getTableService(tableTwo).subscribe((result:any)=> {
       return this.spBody = result;
     })
   }

@@ -1,0 +1,18 @@
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Sr</th>
+            <th *ngFor="let head of miniHeadArray">{{head}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let body of miniBodyArray; let sr = index">
+            <td>{{sr+1}}</td>
+            <td *ngFor="let head of miniHeadArray">
+                {{body[head]}}
+            </td>
+        </tr>
+    </tbody>
+</table>
