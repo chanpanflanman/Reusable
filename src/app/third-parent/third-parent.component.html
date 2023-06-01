@@ -1,7 +1,4 @@
-<div>
-    <form class="input" [formGroup]="idForm" (ngSubmit)="submitID()">
-        <label for="selectField">Type ID of user</label>
-        <input type="number" class="selectField" name="selectField" formControlName="val">
-        <button class="button">Submit</button>
-    </form>
+<div class="hideMainTable">
+    <app-table (emit)="generateMiniTable($event)"></app-table>
 </div>
+<app-mini-table [miniHeadArray]="headers" [miniBodyArray]="rows"></app-mini-table>

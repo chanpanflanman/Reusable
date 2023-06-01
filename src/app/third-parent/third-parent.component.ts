@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-third-parent',
   templateUrl: './third-parent.component.html',
   styleUrls: ['./third-parent.component.css']
 })
-export class ThirdParentComponent {
+export class ThirdParentComponent implements OnInit {
   
-  id: any;
-  idForm = new FormGroup({
-    val: new FormControl()
-  })
+  headers: string [] = []
+  rows: any [] = [];
 
-  submitID() {
-    this.id = this.idForm.value;
-    console.log(this.id);
+  ngOnInit(): void {
+    this.generateMiniTable(this.rows);
+  }
+
+  generateMiniTable(row: any) {
+    this.headers = Object.keys(row);
+    this.rows = row;
   }
 }
