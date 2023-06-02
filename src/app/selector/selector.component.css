@@ -59,15 +59,3 @@ a:hover {
     border-radius: 5px;
     border: 1px solid #7490df;
 }
-
-
-.back,
-.back:link,
-.back:hover,
-.back:visited {
-    float: right;
-    position: absolute;
-    right: 10px;
-    color: rgb(57, 57, 248);
-    text-decoration: underline;
-}
