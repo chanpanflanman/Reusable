@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-second-parent',
@@ -10,7 +9,7 @@ import { Data } from '@angular/router';
 
 export class SecondParentComponent implements OnInit {
   tableName: string = 'table2'
-  spHeaders = ['name', 'job' ,'email', 'age', 'country'];
+  spHeaders = ['name', 'job' ,'email', 'age', 'country', 'salary'];
   spBody: any [] = [];
 
   constructor(private api: DataService) { }
