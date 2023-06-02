@@ -7,10 +7,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let body of bodyArray; let sr = index">
+            <tr *ngFor="let body of bodyArray; index as sr">
                 <td>{{sr+1}}</td>
-                <td *ngFor="let header of headerArray">
-                    {{body[header]}}
+                <td *ngFor="let header of headerArray; $implicit as salaryHeader">
+                        <div *ngIf="salaryHeader != 'salary'; else salaryContent">{{body[header]}}</div>
+                        <ng-template #salaryContent> {{body[header] | currency:'USD':'symbol':'4.0'}}</ng-template>
                 </td>
             </tr>
         </tbody>

@@ -5,42 +5,48 @@
       "name": "Sam",
       "email": "sam@test.com",
       "phone": "(909)-484-9999",
-      "website": "sam.altman.com"
+      "website": "sam.altman.com",
+      "salary": 40000
     },
     {
       "id": 2,
       "name": "Cyllian",
       "email": "cyllian@test.com",
       "phone": "(234)-424-9239",
-      "website": "cyllian.murphy.com"
+      "website": "cyllian.murphy.com",
+      "salary": 60000
     },
     {
       "id": 3,
       "name": "Martha",
       "email": "martha@test.com",
       "phone": "(456)-097-2569",
-      "website": "martha.stewart.com"
+      "website": "martha.stewart.com",
+      "salary": 45000
     },
     {
       "id": 4,
       "name": "Mark",
       "email": "mark@test.com",
       "phone": "(239)-224-9135",
-      "website": "mark.cuban.com"
+      "website": "mark.cuban.com",
+      "salary": 100000
     },
     {
       "id": 5,
       "name": "alejandro",
       "email": "ale@test.com",
       "phone": "(231)-876-9841",
-      "website": "alejandro.gutierrez.com"
+      "website": "alejandro.gutierrez.com",
+      "salary": 50000
     },
     {
       "id": 6,
       "name": "Connor",
       "email": "connor@test.com",
       "phone": "(934)-285-1934",
-      "website": "connor.mcdonald.com"
+      "website": "connor.mcdonald.com",
+      "salary": 80000
     }
   ],
   "table2": [
@@ -50,7 +56,8 @@
       "email": "sam@test.com",
       "job": "Teacher",
       "age": 20,
-      "country": "USA"
+      "country": "USA",
+      "salary": 20000
     },
     {
       "id": 2,
@@ -58,7 +65,8 @@
       "email": "cyllian@test.com",
       "job": "Businessman",
       "age": 40,
-      "country": "Ireland"
+      "country": "Ireland",
+      "salary": 55000
     },
     {
       "id": 3,
@@ -66,7 +74,8 @@
       "email": "martha@test.com",
       "job": "Mathematician",
       "age": 29,
-      "country": "Germany"
+      "country": "Germany",
+      "salary": 65000
     },
     {
       "id": 4,
@@ -74,7 +83,8 @@
       "email": "mark@test.com",
       "job": "Director",
       "age": 60,
-      "country": "Mexico"
+      "country": "Mexico",
+      "salary": 140000
     },
     {
       "id": 5,
@@ -82,7 +92,8 @@
       "email": "ale@test.com",
       "job": "Actor",
       "age": 30,
-      "country": "Spain"
+      "country": "Spain",
+      "salary": 20000
     },
     {
       "id": 6,
@@ -90,7 +101,8 @@
       "email": "connor@test.com",
       "job": "Driver",
       "age": 18,
-      "country": "UK"
+      "country": "UK",
+      "salary": 18000
     }
   ]
 }

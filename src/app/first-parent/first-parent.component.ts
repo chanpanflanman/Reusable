@@ -8,13 +8,13 @@ import { DataService } from '../services/data.service';
 
 export class FirstParentComponent implements OnInit {
   tableName: string = 'table1'
-  fpHeaders: any = ['name', 'email','phone', 'website'];
+  fpHeaders: any = ['name', 'email','phone', 'website', 'salary'];
   fpBody: any [] = [];
 
   constructor(private api: DataService) { }
 
   ngOnInit(): void {
-    this.fpGetTable(this.tableName);
+    this.fpGetTable(this.tableName); 
   }
 
   fpGetTable(tableOne: string) {
