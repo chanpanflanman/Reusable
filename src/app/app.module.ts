@@ -11,6 +11,7 @@ import { SecondParentComponent } from './second-parent/second-parent.component';
 import { ThirdParentComponent } from './third-parent/third-parent.component';
 import { SelectorComponent } from './selector/selector.component';
 import { MiniTableComponent } from './mini-table/mini-table.component';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MiniTableComponent } from './mini-table/mini-table.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

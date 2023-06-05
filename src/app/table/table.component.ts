@@ -20,26 +20,24 @@ export class TableComponent implements OnInit {
 
   toExcel() {
     this.dateFileName();
-    let tableinfo = document.getElementById('table');
-
     // To find max length, for each column's cells
     let maxLengthsArray = [];
     let maxLength = 0;
     for (let head of this.headerArray) {
       for (let body of this.bodyArray) {
-        body[head] = body[head];
         if (typeof (body[head]) == 'number') {
-          body[head] = body[head].toString();
-        }
-        if (body[head].length > maxLength) {
+          let x = body[head];
+          x = x.toString();
+          if (x.length > maxLength) {
+            maxLength = x.length;
+          }
+        } else if (body[head].length > maxLength) {
           maxLength = body[head].length;
         }
       }
       maxLengthsArray.push(maxLength);
       maxLength = 0;
     }
-    console.log(maxLengthsArray);
-
     /**
     * Using @param maxLengthsArray, we now have the maximum cell length for each category
     * We use this to push the adequate length of columns, either when the header is larger than the content, equal to or based on the largest cell content per header.
@@ -47,11 +45,11 @@ export class TableComponent implements OnInit {
 
     let colWidth = [{ wch: 2 }]; // Initial value for serial no (Sr)
     for (let i = 0; i < this.headerArray.length; i++) {
-      if (this.headerArray.length > maxLengthsArray[i]) {
-        colWidth.push({ wch: this.headerArray[i].length })
+      if (this.headerArray[i].length > maxLengthsArray[i]) {
+        colWidth.push({ wch: this.headerArray[i].length + 1 })
 
-      } else if (this.headerArray.length == maxLengthsArray[i]) {
-        colWidth.push({ wch: (maxLengthsArray[i] + 1) })
+      } else if (this.headerArray[i].length == maxLengthsArray[i]) {
+        colWidth.push({ wch: maxLengthsArray[i] + 1 })
 
       } else {
         colWidth.push({ wch: maxLengthsArray[i] })
@@ -62,12 +60,14 @@ export class TableComponent implements OnInit {
      * We now have @param colWidth to define the worksheet's column widths respectively
      */
 
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(tableinfo)
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.bodyArray);
+
     ws["!cols"] = colWidth;
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     XLSX.writeFile(wb, this.fileName);
+
   }
 
   /**
@@ -85,6 +85,6 @@ export class TableComponent implements OnInit {
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
 
-    this.fileName = `${day}.${month}.${year}_${hour}.${minutes}.${seconds}.xlsx`;
+    this.fileName = `${day}-${month}-${year}_${hour}.${minutes}.${seconds}.xlsx`;
   }
 }

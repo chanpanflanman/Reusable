@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-second-parent',
@@ -12,7 +13,7 @@ export class SecondParentComponent implements OnInit {
   spHeaders = ['name', 'job' ,'email', 'age', 'country', 'salary'];
   spBody: any [] = [];
 
-  constructor(private api: DataService) { }
+  constructor(private api: DataService, private curr: CurrencyPipe) { }
 
   ngOnInit(): void {
     this.spGetTable(this.tableName);
@@ -20,7 +21,14 @@ export class SecondParentComponent implements OnInit {
 
   spGetTable(tableTwo: string) {
     this.api.getTableService(tableTwo).subscribe((result:any)=> {
-      return this.spBody = result;
+      this.spBody = result;
+      for (let head of this.spHeaders) {
+        for (let body of this.spBody) {
+          if (head == 'salary') {
+            body[head] = this.curr.transform(body[head], 'USD', 'symbol', '4.0');
+          }
+        }
+      }
     })
   }
 }
