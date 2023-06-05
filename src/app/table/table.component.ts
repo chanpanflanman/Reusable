@@ -9,7 +9,7 @@ import * as XLSX from 'xlsx';
 export class TableComponent implements OnInit {
   @Input() headerArray: any = [];
   @Input() bodyArray: any[] = [];
-  
+
   headerFlag: boolean = true;
   fileName: string = '';
 
@@ -28,7 +28,7 @@ export class TableComponent implements OnInit {
     for (let head of this.headerArray) {
       for (let body of this.bodyArray) {
         body[head] = body[head];
-        if (typeof(body[head]) == 'number') {
+        if (typeof (body[head]) == 'number') {
           body[head] = body[head].toString();
         }
         if (body[head].length > maxLength) {
@@ -38,30 +38,43 @@ export class TableComponent implements OnInit {
       maxLengthsArray.push(maxLength);
       maxLength = 0;
     }
+    console.log(maxLengthsArray);
 
-    /* Using MaxLegnthsArray, we push each value into an array that takes the adequate lengths per column, comparing both content and header lengths */
+    /**
+    * Using @param maxLengthsArray, we now have the maximum cell length for each category
+    * We use this to push the adequate length of columns, either when the header is larger than the content, equal to or based on the largest cell content per header.
+    */
 
-    let colWithd = [{ wch: 2 }]; // Initial value for serial no (Sr)
-    for (let i = 0; i < this.headerArray.length - 1; i++) {
+    let colWidth = [{ wch: 2 }]; // Initial value for serial no (Sr)
+    for (let i = 0; i < this.headerArray.length; i++) {
       if (this.headerArray.length > maxLengthsArray[i]) {
-        colWithd.push({ wch: this.headerArray.length })
+        colWidth.push({ wch: this.headerArray[i].length })
 
       } else if (this.headerArray.length == maxLengthsArray[i]) {
-        colWithd.push({ wch: (maxLengthsArray[i] + 1) })
+        colWidth.push({ wch: (maxLengthsArray[i] + 1) })
 
       } else {
-        colWithd.push({ wch: maxLengthsArray[i] })
+        colWidth.push({ wch: maxLengthsArray[i] })
       }
     }
 
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(tableinfo)
-    ws["!cols"] = colWithd;
+    /**
+     * We now have @param colWidth to define the worksheet's column widths respectively
+     */
 
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(tableinfo)
+    ws["!cols"] = colWidth;
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     XLSX.writeFile(wb, this.fileName);
   }
+
+  /**
+   * To create a format for current date-time as a file name
+   * Using the methods of Date(), we can manipulate the file name as a format of these values in whatever way we want
+   * Currently it follows 'dd.mm.yy_h.m.s.xlsx'
+   */
 
   dateFileName() {
     const date = new Date();
